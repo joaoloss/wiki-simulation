@@ -16,3 +16,7 @@ Done!
 ## Limitations:
 - It isn't responsive, as the main purpose of the project is to improve Django skills (such as data manipulation).
 - It doesn't have a registration system, so anyone can edit and delete the existing pages.
+
+[preview.webm](https://github.com/joaoloss/wiki-simulation/assets/120062387/b5644fb4-92aa-4261-9d36-d2face651bf8)
+
+
