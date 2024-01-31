@@ -1,0 +1,37 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+    <h1>{% block inicial_message %} {% endblock %}</h1>
+    <form method="post" action="{% block form_action %} {% endblock %}" id="newPageForm">
+        {% csrf_token %}
+
+        <!-- feedback message -->
+        {% for msg in messages %}
+            <div class="alert alert-danger w-50" role="alert">
+                {{ msg }}
+            </div>
+        {% endfor %}
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">A title</label>
+            {% if request.GET.title %}
+                <input name="title" type="text" class="form-control w-50" id="exampleFormControlInput1" value="{{request.GET.title}}">
+            {% else %}
+                <input name="title" type="text" class="form-control w-50" id="exampleFormControlInput1" placeholder="Type your title here">
+            {% endif %}
+            </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">The content (type it following the Markdown syntax)</label>
+            {% if request.GET.content %}
+                <textarea name="content" class="form-control w-50" id="exampleFormControlTextarea1" rows="3">{{request.GET.content}}</textarea>
+            {% else %}
+                <textarea name="content" class="form-control w-50" id="exampleFormControlTextarea1" rows="3" placeholder="Use Markdown language here"></textarea>
+            {% endif %}
+            <p style="margin-top: 10px;">Don't know Markdown syntax? <a target="_blank" class="link-offset-2 link-underline link-underline-opacity-75" href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Click here!</a></p>
+        </div>
+        <input class="btn btn-primary" type="submit" value="{% block submit_message %} {% endblock %}">
+        {% block delete_button %} {% endblock %}
+    </form>
+{% endblock %}

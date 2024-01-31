@@ -1,0 +1,19 @@
+{% extends "encyclopedia/form_layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block form_action %} {% url 'encyclopedia:saving' %} {% endblock %}
+
+{% block inicial_message %} 
+    Edit the page:
+{% endblock %}
+
+{% block submit_message %}Save changes{% endblock %}
+
+{% block delete_button %}
+    {% if request.GET.title %}
+        <a href="{% url 'encyclopedia:delete' title=request.GET.title %}"><button type="button" class="btn btn-danger" >Delete page</button></a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "encyclopedia/form_layout.html" %}
+
+{% block title %}
+    New
+{% endblock %}
+
+{% block form_action %} {% url 'encyclopedia:validating' %} {% endblock %}
+
+{% block inicial_message %} 
+    Create your page:
+{% endblock %}
+
+{% block submit_message %}Save page{% endblock %}
